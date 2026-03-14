@@ -95,6 +95,25 @@ class CalculatorApp(ft.Container):
         self.operand1 = 0
         self.new_operand = True
 
+    def format_number(self, number):
+        if number % 1 == 0:
+            return int(number)
+        else:
+            return number
+
+    def calculate(self, operand1, operand2, operator):
+        if operator == "+":
+            return self.format_number(operand1 + operand2)
+        elif operator == "-":
+            return self.format_number(operand1 - operand2)
+        elif operator == "*":
+            return self.format_number(operand1 * operand2)
+        elif operator == "/":
+            if operand2 == 0:
+                return "Error"
+            else:
+                return self.format_number(operand1 / operand2)
+
 
 def main(page: ft.Page):
     page.title = "Калькулятор"
