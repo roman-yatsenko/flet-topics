@@ -3,13 +3,10 @@ import flet as ft
 
 @ft.control
 class CalcButton(ft.Button):
-    pass
-    # expand: int = 1
 
-    # def __init__(self, *args, **kwargs):
-    # super().__init__(*args, **kwargs)
-    # self.expand = 1
-    # self.expand_loose = False
+    def init(self):
+        if not self.expand:
+            self.expand = 1
 
 
 @ft.control
@@ -34,7 +31,7 @@ class ExtraActionButton(CalcButton):
 class CalculatorApp(ft.Container):
 
     def init(self):
-        self.width = 290
+        self.width = 350
         self.bgcolor = ft.Colors.BLACK
         self.border_radius = ft.BorderRadius.all(20)
         self.padding = 20
