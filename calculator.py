@@ -44,40 +44,40 @@ class CalculatorApp(ft.Container):
                 ft.Row(
                     controls=[
                         ExtraActionButton("AC", on_click=self.button_clicked),
-                        ExtraActionButton("+/-"),
-                        ExtraActionButton("%"),
-                        ActionButton("/"),
+                        ExtraActionButton("+/-", on_click=self.button_clicked),
+                        ExtraActionButton("%", on_click=self.button_clicked),
+                        ActionButton("/", on_click=self.button_clicked),
                     ],
                 ),
                 ft.Row(
                     controls=[
-                        DigitButton("7"),
-                        DigitButton("8"),
-                        DigitButton("9"),
-                        ActionButton("*"),
+                        DigitButton("7", on_click=self.button_clicked),
+                        DigitButton("8", on_click=self.button_clicked),
+                        DigitButton("9", on_click=self.button_clicked),
+                        ActionButton("*", on_click=self.button_clicked),
                     ]
                 ),
                 ft.Row(
                     controls=[
-                        DigitButton("4"),
-                        DigitButton("5"),
-                        DigitButton("6"),
-                        ActionButton("-"),
+                        DigitButton("4", on_click=self.button_clicked),
+                        DigitButton("5", on_click=self.button_clicked),
+                        DigitButton("6", on_click=self.button_clicked),
+                        ActionButton("-", on_click=self.button_clicked),
                     ]
                 ),
                 ft.Row(
                     controls=[
                         DigitButton("1", on_click=self.button_clicked),
-                        DigitButton("2"),
-                        DigitButton("3"),
-                        ActionButton("+"),
+                        DigitButton("2", on_click=self.button_clicked),
+                        DigitButton("3", on_click=self.button_clicked),
+                        ActionButton("+", on_click=self.button_clicked),
                     ]
                 ),
                 ft.Row(
                     controls=[
-                        DigitButton("0", expand=2),
-                        DigitButton("."),
-                        ActionButton("="),
+                        DigitButton("0", expand=2, on_click=self.button_clicked),
+                        DigitButton(".", on_click=self.button_clicked),
+                        ActionButton("=", on_click=self.button_clicked),
                     ]
                 ),
             ]
