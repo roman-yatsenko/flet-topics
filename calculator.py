@@ -114,6 +114,18 @@ class CalculatorApp(ft.Container):
             )
             self.reset()
 
+        elif data == "%":
+            self.result.value = float(self.result.value) / 100
+            self.reset()
+
+        elif data == "+/-":
+            if float(self.result.value) > 0:
+                self.result.value = "-" + self.result.value
+            elif float(self.result.value) < 0:
+                self.result.value = str(abs(float(self.result.value)))
+
+        self.update()
+
     def reset(self):
         self.operator = "+"
         self.operand1 = 0
