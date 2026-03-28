@@ -10,7 +10,7 @@ class Task(ft.Column):
     on_task_delete: Callable[["Task"], None] = field(default=lambda task: None)
 
     def init(self):
-        self.display_task = ft.Checkbox(value=False, label=self.task_name)
+        self.display_task = ft.Checkbox(value=False, label=self.task_name, expand=True)
         self.edit_name = ft.TextField(expand=1)
 
         self.display_view = ft.Row(
@@ -37,7 +37,7 @@ class Task(ft.Column):
         )
 
         self.edit_view = ft.Row(
-            visible=True,
+            visible=False,
             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
             vertical_alignment=ft.CrossAxisAlignment.CENTER,
             controls=[
@@ -61,7 +61,7 @@ class Task(ft.Column):
     def save_clicked(self, e):
         self.display_task.label = self.edit_name.value
         self.display_view.visible = True
-        self.edit_view = False
+        self.edit_view.visible = False
         self.update()
 
     def delete_clicked(self, e):
@@ -90,8 +90,13 @@ class ToDoApp(ft.Column):
         )
 
     def add_clicked(self, e):
-        self.tasks_view.controls.append(ft.Checkbox(label=self.new_task.value))
+        task = Task(task_name=self.new_task.value, on_task_delete=self.task_delete)
+        self.tasks_view.controls.append(task)
         self.new_task.value = ""
+        self.update()
+
+    def task_delete(self, task):
+        self.tasks_view.controls.remove(task)
         self.update()
 
 
